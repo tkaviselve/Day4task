@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY WEB PAGE FOR XMLHTTPREQUEST</title>
+</head>
+<body>
+<h1>Hello</h1>
+        <h2>Display all Countries Names,Regions,SubRegions and Populations</h2>
+        <script>
+            console.log("Welcome to HTML JS")
+
+            function handleData(){
+                let data =JSON.parse(this.responseText)
+               console.log(data)
+            
+           for( e of data)
+         {
+             console.log(e.name.common,e.region,e.subregion,e.population)
+         }
+        }
+            const req = new XMLHttpRequest();
+            req.addEventListener('load',handleData)
+            req.open("GET","https://restcountries.com/v3.1/all")
+            req.send()
+        </script>
+    </body>
